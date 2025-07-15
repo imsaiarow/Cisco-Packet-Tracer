@@ -1,0 +1,4 @@
+1. Check whether our pc is getting ip address, default gateway.
+2.Ping default gateway
+3.In the router check whether static route is configured for destination network with next hop configured.
+4. check whether correct next hop is configured.
