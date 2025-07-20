@@ -1,0 +1,22 @@
+VLAN_Lab Description
+
+1. PCs are connected to a Cisco modular switch1
+2. Switch1 is connected to a router in gi0/0
+3. router has another interface gi0/1 where it is connected to switch2
+4. Switch2 connected to a pc16
+5. PCs are in different vlans, so we created VLAN10,VLAN20,VLAN30,VLAN40,VLAN50.
+6. PCs are set to Dhcp ip configuration
+7. In switch1, 5 vlans with HR_DEPT,FIN_DEPT,MKT_DEPT,SALES_DEPT,IT_DEPT are created.
+8. In switch1, Vlan range has been configured and configured the range in access mode.
+   In switch1, interface fa0/24 is configured as trunk port , because that interface i connected to router, which                      	can be used to rroute traffic between different vlans
+9. In router, subinterfaces with dot1q encapsulation is configured and vlan tagging is added.
+10. In router, dhcp pool is created for 5 subinterfaces with their respective network
+11. ACL is created in router, deny any traffic to network 192.168.20.0 and named as BLOCK_TO_VLAN20
+12. Apply the BLOCK_TO_VLAN20 acl to gi0/0.20 subinterface as outbound rule
+13. In router, gi0/1 is configured as 10.10.1.1
+14. In switch2, default vlan 1 is configured with ip 10.10.1.2
+15. In switch to all interfaces are configured as access port to vlan 1
+16. In pc16, set the ip to dynamic
+17. Try pinging from PC1 to PC16 and vice versa, it should be reachable.
+18. Try ping any ip from 192.168.2.0 network , it should be denied or blocked.
+ 
